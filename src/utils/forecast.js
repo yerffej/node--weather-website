@@ -10,11 +10,13 @@ const forecast = (latitude, longitude, callback) => {
             callback(body.error);
         } else {
             const temperature = body.currently.temperature,
+                tempHigh = body.daily.data[0].temperatureHigh,
+                tempLow = body.daily.data[0].temperatureLow,
                 precipProbability = body.currently.precipProbability * 100,
                 summary1 = body.minutely.summary,
                 summary2 = body.hourly.summary,
                 summary3 = body.daily.summary,
-                forecastString = `It is currently ${temperature} degrees F out. There is a ${precipProbability} percent chance of rain. \n${summary1} ${summary2} ${summary3}`;
+                forecastString = `It is currently ${temperature} degrees F out with a high of ${tempHigh} and a low of ${tempLow}. There is a ${precipProbability} percent chance of rain. \n${summary1} ${summary2} ${summary3}`;
 
             callback(undefined, forecastString);
         }
