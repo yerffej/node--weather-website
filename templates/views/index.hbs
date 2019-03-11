@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{>head}}
+</head>
+<body>
+    <div class="main-content">
+        {{>header}}
+        <p>How's the weather? Let's find out.</p>
+        <form id="weather-search">
+            <input placeholder="Location" id="address">
+            <button>Search</button>
+        </form>
+        <div id="output">
+            <p id="message-1"></p>
+            <p id="message-2"></p>
+        </div>
+    </div>
+    
+    {{>footer}}
+
+    <script src="/js/weather.js"></script>
+</body>
+</html>
